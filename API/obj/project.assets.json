@@ -1305,7 +1305,8 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "Application >= 1.0.0",
-      "Swashbuckle.AspNetCore >= 5.6.3"
+      "Swashbuckle.AspNetCore >= 5.6.3",
+      "Swashbuckle.AspNetCore.Swagger >= 5.6.3"
     ]
   },
   "packageFolders": {
@@ -1350,6 +1351,10 @@
         "targetAlias": "net5.0",
         "dependencies": {
           "Swashbuckle.AspNetCore": {
+            "target": "Package",
+            "version": "[5.6.3, )"
+          },
+          "Swashbuckle.AspNetCore.Swagger": {
             "target": "Package",
             "version": "[5.6.3, )"
           }
