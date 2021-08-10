@@ -30,10 +30,16 @@ namespace API.Controllers
             return await _mediator.Send(new List.Query());
         }
 
-        [HttpGet ("{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Channel>> Details(Guid id)
         {
-            return await _mediator.Send(new Details.Query {Id = id});
+            return await _mediator.Send(new Details.Query { Id = id });
+        }   
+
+        public async Task<Unit> Create([FromBody] Create.Command command)
+        {
+            return await _mediator.Send(command);
         }
+
     }
 }

@@ -1,34 +1,22 @@
 import "./App.css";
 import React, { Component } from "react";
 import axios from "axios";
-import { Header, List } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
+import SidePanel from "./components/SidePanel/SidePanel/SidePanel";
+import ColorPanel from "./components/SidePanel/ColorPanel/ColorPanel";
+import Messages from "./components/SidePanel/Messages/Messages";
+import MetaPanel from "./components/SidePanel/MetaPanel/MetaPanel";
 
 class App extends Component {
-  state = {
-    channels: [],
-  };
-
-  componentDidMount() {
-    axios.get("http://localhost:5000/api/channels").then((response) => {
-      this.setState({
-        channels: response.data,
-      });
-    });
-  }
 
   render() {
     return (
-      <div className="App-header">
-        <Header as="h2" icon>
-          <Header.Subheader> NetChat. </Header.Subheader>
-        </Header>
-
-        <List>
-          {this.state.channels.map((value: any) => (
-            <List.Item key={value.id}> {value.name} </List.Item>
-          ))}
-        </List>
-      </div>
+      <Grid> 
+        <ColorPanel/>
+        <SidePanel/>
+        <Messages/>
+        <MetaPanel/>
+      </Grid>
     );
   }
 }
