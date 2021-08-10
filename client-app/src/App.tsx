@@ -1,21 +1,26 @@
 import "./App.css";
 import React, { Component } from "react";
-import axios from "axios";
 import { Grid } from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css'
 import SidePanel from "./components/SidePanel/SidePanel/SidePanel";
 import ColorPanel from "./components/SidePanel/ColorPanel/ColorPanel";
 import Messages from "./components/SidePanel/Messages/Messages";
 import MetaPanel from "./components/SidePanel/MetaPanel/MetaPanel";
 
 class App extends Component {
-
   render() {
     return (
-      <Grid> 
-        <ColorPanel/>
-        <SidePanel/>
-        <Messages/>
-        <MetaPanel/>
+      <Grid columns="equal" className="app">
+        <ColorPanel />
+        <SidePanel />
+
+        <Grid.Column style={{ marginleft: 320 }}>
+          <Messages />
+        </Grid.Column>
+
+        <Grid.Column width={4}>
+          <MetaPanel />
+        </Grid.Column>
       </Grid>
     );
   }
