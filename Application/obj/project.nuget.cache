@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "wAa+bJz/x7m4GKreMUVOdmVDEBvXawQOhXHcHlMOvYyjqenWErNFYfGCC624S7rJ0uunpBpsF+K6NCAR98aJDg==",
+  "dgSpecHash": "IyJs5GrGa3zitFtDYMSN/NZ0/PsTIeSuY0xRRR3fyZGpkgoe/ejlNg39jNYoVpER2RKe5AWEvdOdFsudLMTSjg==",
   "success": true,
   "projectFilePath": "D:\\Users\\practecnologia03\\Documents\\NetChat\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "D:\\Users\\practecnologia03\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "D:\\Users\\practecnologia03\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "D:\\Users\\practecnologia03\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "D:\\Users\\practecnologia03\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "D:\\Users\\practecnologia03\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.8\\microsoft.data.sqlite.core.5.0.8.nupkg.sha512",
     "D:\\Users\\practecnologia03\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.6\\microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",

@@ -1,39 +1,36 @@
-import logo from "./logo.svg";
 import "./App.css";
-import React, {Component} from "react";
-import { cars } from "./demo";
-import CarItem from './CarItem'
+import React, { Component } from "react";
 import axios from "axios";
+import { Header, List } from "semantic-ui-react";
 
-
-class App extends Component{
+class App extends Component {
   state = {
-    channels: []
-  }
+    channels: [],
+  };
 
-  componentDidMount(){
-    axios.get('http://localhost:5000/api/channels').then((response) => {
+  componentDidMount() {
+    axios.get("http://localhost:5000/api/channels").then((response) => {
       this.setState({
-          channels: response.data
-      })
-    })
+        channels: response.data,
+      });
+    });
   }
 
   render() {
     return (
-          <div className="App-header">
-            <header className="App">
-              <img src={logo} className="App-logo" alt="logo" />
-            </header>
-            <ul>
-              {this.state.channels.map((value: any) => (
-                  <li>{value.name}</li>
-              ))}
-            </ul>
-          </div>
-        );
-  }
-};
+      <div className="App-header">
+        <Header as="h2" icon>
+          <Header.Subheader> NetChat. </Header.Subheader>
+        </Header>
 
+        <List>
+          {this.state.channels.map((value: any) => (
+            <List.Item key={value.id}> {value.name} </List.Item>
+          ))}
+        </List>
+      </div>
+    );
+  }
+}
 
 export default App;
