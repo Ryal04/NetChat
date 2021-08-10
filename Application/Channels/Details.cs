@@ -24,9 +24,9 @@ namespace Application.Channels
                 _context = context ?? throw new ArgumentException(nameof(context));
             }
 
-            Task<Channel> IRequestHandler<Query, Channel>.Handle(Query request, CancellationToken cancellationToken)
+            public async Task<Channel> Handle(Query request, CancellationToken cancellationToken)
             {
-                throw new NotImplementedException();
+                return await _context.Channels.FindAsync(request.Id);
             }
         }
     }
