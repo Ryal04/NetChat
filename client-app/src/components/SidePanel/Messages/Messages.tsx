@@ -1,11 +1,22 @@
-import React from 'react'
+import React from "react";
+import { Segment, Comment } from "semantic-ui-react";
+import MessageForm from "./MessageForm";
+import MessageHeader from "./MessageHeader";
 
 export const Messages = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return (
+    <React.Fragment>
+      {/* Header*/}
 
-export default Messages
+      <MessageHeader />
+
+      <Segment>
+        <Comment.Group></Comment.Group>
+      </Segment>
+
+      <MessageForm />
+    </React.Fragment>
+  );
+};
+
+export default Messages;

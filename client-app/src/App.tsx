@@ -14,7 +14,7 @@ class App extends Component {
         <ColorPanel />
         <SidePanel />
 
-        <Grid.Column style={{ marginleft: 320 }}>
+        <Grid.Column style={{ marginLeft: 320 }}>
           <Messages />
         </Grid.Column>
 
