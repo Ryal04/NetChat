@@ -1,6 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { Agent } from "http";
-import { url } from "inspector";
+
 import { IChannel } from "../models/channels";
 
 axios.defaults.baseURL = 'http://localhost:5000/api' 
