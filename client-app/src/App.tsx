@@ -7,6 +7,7 @@ import ColorPanel from "./components/SidePanel/ColorPanel/ColorPanel";
 import Messages from "./components/SidePanel/Messages/Messages";
 import MetaPanel from "./components/SidePanel/MetaPanel/MetaPanel";
 
+
 class App extends Component {
   render() {
     return (
