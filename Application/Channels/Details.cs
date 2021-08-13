@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Error;
 using Domain;
 using MediatR;
 using Persistence;
@@ -26,7 +28,13 @@ namespace Application.Channels
 
             public async Task<Channel> Handle(Query request, CancellationToken cancellationToken)
             {
-                return await _context.Channels.FindAsync(request.Id);
+                var channel = await _context.Channels.FindAsync(request.Id);
+                  if (channel == null)
+                  {
+                    throw new RestException(HttpStatusCode.NotFound , new { channel = "Not Found"});
+                  }
+                  
+                return channel;
             }
         }
     }
