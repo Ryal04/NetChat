@@ -5,9 +5,6 @@ import { IChannel } from '../../../models/channels'
 import {observer} from 'mobx-react-lite'
 import {v4 as uuid} from 'uuid'
 
-
-interface IProps{}
-
 const ChannelForm: React.FC = () => {
     
     const initialChannle = {

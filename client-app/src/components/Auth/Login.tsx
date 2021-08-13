@@ -38,7 +38,7 @@ const Login = () => {
                 </Form>
 
                 <Message>
-                    Don't have an account<Link to = "/register">Login</Link>
+                    Don't have an account <Link to = "/register">Login</Link>
                 </Message>
 
             </Grid.Column>
