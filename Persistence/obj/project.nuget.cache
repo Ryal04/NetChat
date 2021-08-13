@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ohe7VkebVKsdNG1Tn9xkthmWSyx+eWVpWE5LoBEerHKzeTak0MtDawXDcC7LFdV2V9A1H1mUBfGAU6wrtj7dnw==",
+  "dgSpecHash": "WUWo8fRR25KhshxzCTWM6oFS5p+uewZzjQV9fQnGWO9ZKLSJKsia3XKBT5ubVhlFJaVhVq73afY+duKGlezpRw==",
   "success": true,
-  "projectFilePath": "D:\\Users\\practecnologia03\\Documents\\NetChat\\Persistence\\Persistence.csproj",
+  "projectFilePath": "d:\\Users\\practecnologia03\\Documents\\NetChat\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
     "D:\\Users\\practecnologia03\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "D:\\Users\\practecnologia03\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.8\\microsoft.aspnetcore.cryptography.internal.5.0.8.nupkg.sha512",

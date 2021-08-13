@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lgm20ysY79Xs7eWnxz5Am+lhrFCSiKACmC5z8eRpeVqEws2g8f2ruozJBA7K/zNbPSvKOvOFk+ZxyYyidn9xjQ==",
+  "dgSpecHash": "0/HEMaMbsl2t9wlh2Bkh45/sXyiFY4Hoo0xv06neaUNe6YLZdYc4Vy01brI86zlJ81ctTTaUDAKbyZml+uIssA==",
   "success": true,
-  "projectFilePath": "D:\\Users\\practecnologia03\\Documents\\NetChat\\API\\API.csproj",
+  "projectFilePath": "d:\\Users\\practecnologia03\\Documents\\NetChat\\API\\API.csproj",
   "expectedPackageFiles": [
     "D:\\Users\\practecnologia03\\.nuget\\packages\\fluentvalidation\\10.3.0\\fluentvalidation.10.3.0.nupkg.sha512",
     "D:\\Users\\practecnologia03\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.0\\fluentvalidation.aspnetcore.10.3.0.nupkg.sha512",
@@ -36,6 +36,9 @@
     "D:\\Users\\practecnologia03\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "D:\\Users\\practecnologia03\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
     "D:\\Users\\practecnologia03\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "D:\\Users\\practecnologia03\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.12.1\\microsoft.identitymodel.jsonwebtokens.6.12.1.nupkg.sha512",
+    "D:\\Users\\practecnologia03\\.nuget\\packages\\microsoft.identitymodel.logging\\6.12.1\\microsoft.identitymodel.logging.6.12.1.nupkg.sha512",
+    "D:\\Users\\practecnologia03\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.12.1\\microsoft.identitymodel.tokens.6.12.1.nupkg.sha512",
     "D:\\Users\\practecnologia03\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "D:\\Users\\practecnologia03\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.4\\sqlitepclraw.bundle_e_sqlite3.2.0.4.nupkg.sha512",
     "D:\\Users\\practecnologia03\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
@@ -48,7 +51,9 @@
     "D:\\Users\\practecnologia03\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "D:\\Users\\practecnologia03\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "D:\\Users\\practecnologia03\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
-    "D:\\Users\\practecnologia03\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+    "D:\\Users\\practecnologia03\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.12.1\\system.identitymodel.tokens.jwt.6.12.1.nupkg.sha512",
+    "D:\\Users\\practecnologia03\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "D:\\Users\\practecnologia03\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }
