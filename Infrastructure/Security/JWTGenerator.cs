@@ -1,10 +1,10 @@
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
-using Application.Interfaces;
 using Domain;
+using Application.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Infrastructure.Security
@@ -19,7 +19,7 @@ namespace Infrastructure.Security
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is the secret key"));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature)
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
             
             var tokenDescriptor = new SecurityTokenDescriptor
             {
