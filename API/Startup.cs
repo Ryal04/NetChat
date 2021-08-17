@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using API.Middleware;
 using Application.Channels;
@@ -9,6 +10,7 @@ using Domain;
 using FluentValidation.AspNetCore;
 using Infrastructure.Security;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -19,6 +21,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Persistence;
 
@@ -65,8 +68,21 @@ namespace API
             identityBuilder.AddEntityFrameworkStores<DataContext>();
             identityBuilder.AddSignInManager<SignInManager<AppUser>>();
 
-            services.AddAuthentication();
-            services.AddScoped<IJwtGenerator, JWTGenerator>();;
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is the secret key"));
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddJwtBearer(
+                 opt => {
+                     opt.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                     {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = key,
+                        ValidateAudience = false,
+                        ValidateIssuer = false,  
+                     };
+                 }
+             );
+            services.AddScoped<IJwtGenerator, JWTGenerator>();
 
 
         }
@@ -76,10 +92,11 @@ namespace API
         {
             app.UseMiddleware<ErrorHandlingMiddleware>();
             app.UseRouting();
-            
+            app.UseCors("CorsPolicy");
+
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseCors("CorsPolicy");
+            
 
             app.UseEndpoints(endpoints =>
             {

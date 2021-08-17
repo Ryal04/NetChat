@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Application.Channels;
 using Domain;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -22,6 +23,7 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<Channel>> Details(Guid id)
         {
             return await Mediator.Send(new Details.Query { Id = id });

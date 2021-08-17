@@ -1253,11 +1253,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Users\\practecnologia03\\Documents\\NetChat\\Persistence\\Persistence.csproj",
+      "projectUniqueName": "D:\\Users\\practecnologia03\\Documents\\NetChat\\Persistence\\Persistence.csproj",
       "projectName": "Persistence",
-      "projectPath": "d:\\Users\\practecnologia03\\Documents\\NetChat\\Persistence\\Persistence.csproj",
+      "projectPath": "D:\\Users\\practecnologia03\\Documents\\NetChat\\Persistence\\Persistence.csproj",
       "packagesPath": "D:\\Users\\practecnologia03\\.nuget\\packages\\",
-      "outputPath": "d:\\Users\\practecnologia03\\Documents\\NetChat\\Persistence\\obj\\",
+      "outputPath": "D:\\Users\\practecnologia03\\Documents\\NetChat\\Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "D:\\Users\\practecnologia03\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1272,8 +1272,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "d:\\Users\\practecnologia03\\Documents\\NetChat\\Domain\\Domain.csproj": {
-              "projectPath": "d:\\Users\\practecnologia03\\Documents\\NetChat\\Domain\\Domain.csproj"
+            "D:\\Users\\practecnologia03\\Documents\\NetChat\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\Users\\practecnologia03\\Documents\\NetChat\\Domain\\Domain.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SmPBS5+0Uv4fJyJ+31g1Z+8lThMNv3Bot+edbM0nnU31V6yv0yGozlnmPifDJT7OyRc3Cqu78bdGexDarVgJgQ==",
+  "dgSpecHash": "vtKhOmABbciL2z3RUn6gRi6wjOJSJxMEDGetrNvmeoYX2Qs3W3vJIya4II6CNZZe7ZAQmVyVSvV5NAC+gx9sLw==",
   "success": true,
-  "projectFilePath": "d:\\Users\\practecnologia03\\Documents\\NetChat\\Domain\\Domain.csproj",
+  "projectFilePath": "D:\\Users\\practecnologia03\\Documents\\NetChat\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "D:\\Users\\practecnologia03\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.8\\microsoft.aspnetcore.cryptography.internal.5.0.8.nupkg.sha512",
     "D:\\Users\\practecnologia03\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.8\\microsoft.aspnetcore.cryptography.keyderivation.5.0.8.nupkg.sha512",
