@@ -26,7 +26,11 @@ namespace Application.User
             {
                 RuleFor(x => x.UserName).NotEmpty();
                 RuleFor(x => x.Email).NotEmpty();
-                RuleFor(x => x.Password).NotEmpty();
+                RuleFor(x => x.Password).NotEmpty()
+                                        .MinimumLength(6)
+                                        .WithMessage("Password must me at least 6 characters")
+                                        .Matches("[A-Z]")
+                                        .WithMessage("Password must contain 1 upper case letter");
             }
         }
 
