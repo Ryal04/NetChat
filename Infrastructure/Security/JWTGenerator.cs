@@ -6,11 +6,17 @@ using System.Security.Claims;
 using Domain;
 using Application.Interfaces;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Security
 {
     public class JWTGenerator : IJwtGenerator
     {
+         private SymmetricSecurityKey _Key; 
+        public JWTGenerator(IConfiguration configuration) 
+        {
+            _Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["TokenKey"]));
+        }
         public string CreateToken(AppUser user)
         {
             var claims = new List<Claim>
@@ -18,8 +24,7 @@ namespace Infrastructure.Security
                 new Claim(JwtRegisteredClaimNames.NameId, user.UserName)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is the secret key"));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
+            var creds = new SigningCredentials(_Key, SecurityAlgorithms.HmacSha256Signature);
             
             var tokenDescriptor = new SecurityTokenDescriptor
             {
