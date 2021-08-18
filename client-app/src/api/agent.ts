@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import { IChannel } from "../models/channels";
 import { history } from '../index'
 import { toast } from "react-toastify";
+import { IUser, IUserFormValues } from "../models/users";
 
 axios.defaults.baseURL = 'http://localhost:5000/api' 
 
@@ -31,6 +32,12 @@ const Channels = {
     create: (channel : IChannel) => request.post('/Channels',channel),
 }
 
+const User = {
+    login: (user: IUserFormValues) : Promise <IUser> => request.post('/user/login',user),
+    create: (user: IUserFormValues) : Promise <IUser> => request.post('/user/register',user),
+    current: () : Promise <IUser> => request.get('/user'),
+}
 export default {
     Channels,
+    User,
 }
