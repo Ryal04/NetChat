@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Application.Error;
 using Application.Interfaces;
+using Application.Validators;
 using Domain;
 using FluentValidation;
 using MediatR;
@@ -15,22 +16,32 @@ namespace Application.User
     {
         public class Command : IRequest<User>
         {
-            public string UserName{get; set;}
+            public string UserName { get; set; }
             public string Email { get; set; }
             public string Password { get; set; }
-        } 
+        }
 
         public class CommandValidator : AbstractValidator<Command>
         {
-            public CommandValidator()
+            private UserManager<AppUser> userManager;
+
+            public CommandValidator(UserManager<AppUser> userManager)
             {
-                RuleFor(x => x.UserName).NotEmpty();
-                RuleFor(x => x.Email).NotEmpty();
-                RuleFor(x => x.Password).NotEmpty()
-                                        .MinimumLength(6)
-                                        .WithMessage("Password must me at least 6 characters")
-                                        .Matches("[A-Z]")
-                                        .WithMessage("Password must contain 1 upper case letter");
+                RuleFor(x => x.UserName)
+                    .NotEmpty()
+                    .MustAsync(async (userName, cancellation) => (await userManager.FindByNameAsync(userName)) == null)
+                    .WithMessage("UserName already exists");
+
+
+                RuleFor(x => x.Email).NotEmpty()
+                    .NotEmpty()
+                    .EmailAddress()
+                    .MustAsync(async (email, cancellation) => (await userManager.FindByEmailAsync(email)) == null)
+                    .WithMessage("Email already exists");
+
+
+                RuleFor(x => x.Password).Password();
+                this.userManager = userManager;
             }
         }
 
@@ -47,27 +58,17 @@ namespace Application.User
 
             public async Task<User> Handle(Command request, CancellationToken cancellationToken)
             {
-                if (await userManager.FindByEmailAsync(request.Email) != null)
-                {
-                    throw new RestException(HttpStatusCode.BadRequest, new {Email = "User already exists"});
-                }
-
-                if (await userManager.FindByNameAsync(request.UserName) != null)
-                {
-                    throw new RestException(HttpStatusCode.BadRequest, new {UserName = "Email already exists"});
-                }
-
-                var user = new AppUser 
+                var user = new AppUser
                 {
                     Email = request.Email,
                     UserName = request.UserName,
                 };
 
-                var result = await userManager.CreateAsync(user, request.Password); 
+                var result = await userManager.CreateAsync(user, request.Password);
 
-                if(result.Succeeded)
+                if (result.Succeeded)
                 {
-                    return new User 
+                    return new User
                     {
                         UserName = user.UserName,
                         Email = user.Email,

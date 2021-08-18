@@ -41,8 +41,7 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services
-              .AddControllers(opt => 
+            services.AddControllers(opt =>
               {
                   var policy = new AuthorizationPolicyBuilder()
                   .RequireAuthenticatedUser()
@@ -51,17 +50,15 @@ namespace API
                   opt.Filters.Add(new AuthorizeFilter(policy));
               }
 
-              )
-              .AddFluentValidation(
-                    ctg => {
-                        ctg.RegisterValidatorsFromAssemblyContaining<Create>();
-                    }
+            ).AddFluentValidation(
+                ctg =>{ ctg.RegisterValidatorsFromAssemblyContaining<Create>(); }
             );
-            
+
             services.AddDbContext<DataContext>(x =>
             {
                 x.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
+
             services.AddCors(opt => {
                 opt.AddPolicy("CorsPolicy",
 
@@ -73,7 +70,9 @@ namespace API
                 }
                 );
             });
+
             services.AddSwaggerGen();
+
             services.AddMediatR(typeof(List.Handler).Assembly);
             
             var builder = services.AddIdentityCore<AppUser>();
@@ -95,9 +94,10 @@ namespace API
                      };
                  }
              );
+            
             services.AddScoped<IJwtGenerator, JWTGenerator>();
-
-
+            services.AddScoped<IUserAccessor, UserAccessor>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
