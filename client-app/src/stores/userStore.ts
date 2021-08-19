@@ -1,29 +1,57 @@
-import { action, computed, makeObservable, observable } from "mobx";
+import { computed, observable, action, makeObservable, runInAction } from "mobx";
 import agent from "../api/agent";
-import { IUser, IUserFormValues } from "../models/users";
-import { RootStore } from "./rootStore";
+import {IUser, IUserFormValues} from '../models/users'
+import { RootStore } from './rootStore'
+import { history } from '../index'
 
-export default class UserStore{
-    @observable user: IUser | null = null
-    rootStore: RootStore
+export default class UserStore {
+  
+  @observable user: IUser | null = null
+  rootStore: RootStore
 
-    constructor(rootStore: RootStore) {
-        makeObservable(this)
-        this.rootStore = this.rootStore
+  constructor(rootStore: RootStore) {
+    makeObservable(this)
+    this.rootStore = rootStore
+  }
+  
+  @computed get IsLoggedIn() {
+    return !!this.user
+  }
+
+
+  @action login = async (values: IUserFormValues) => {
+    try {
+      var user = await agent.User.login(values)
+
+      runInAction(() => {
+        this.user = user
+        history.push("/")
+        this.rootStore.commonStore.setToken(user.token)
+      })
+      
+    } catch (error) {
+        throw error
     }
 
-    @computed get IsLoggedIn(){
-        return !! this.user
-    }
+  }
 
-    @action login = async (values: IUserFormValues ) => {
-        
-        try {
-            var user = await agent.User.login(values)
-            this.user = user
-        } catch (error) {
-            console.log(error)
-        }
+  
 
+  @action logout = () => {
+    this.rootStore.commonStore.setToken(null)
+    this.user = null
+    history.push("/login")
+  }
+
+  @action getUser = async () => {
+    try {
+      const user = await agent.User.current()
+      runInAction(() => {
+        this.user = user
+      }
+      )
+    } catch (error) {
+      throw error
     }
+  }
 }

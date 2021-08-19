@@ -1,4 +1,10 @@
-import { observable, action, makeObservable, runInAction } from 'mobx'
+import {
+  observable,
+  action,
+  makeObservable,
+  runInAction,
+} from 'mobx'
+
 import { IChannel } from '../models/channels'
 import agent from '../api/agent'
 import { RootStore } from './rootStore'
